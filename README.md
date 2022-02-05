@@ -4,6 +4,7 @@ Text, line, circle, rectangle, numbers, hex data.
 Controller seems to have the SSD1306 instruction set.
 
 Useful links
+
 https://www.buydisplay.com/download/ic/SSD1316.pdf?tdsourcetag=s_pcqq_aiomsg
 
 https://www.buydisplay.com/download/manual/ER-OLED0.86-1_Datasheet.pdf
