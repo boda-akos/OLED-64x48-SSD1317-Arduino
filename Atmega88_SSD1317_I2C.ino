@@ -279,7 +279,7 @@ bufr[bufridx++]=0;
 }
 
 
-///////////////////////////////////////////////////////////////////////////
+//================= Graphic stuff, mostly of Adafruit origin ====================
 
 // Draw a circle outline
 void drawCircle(int x0, int y0, int r, unsigned int color) {
