@@ -1,7 +1,7 @@
 //Atmega88 SSD1317 OLED 4 pins I2C
-//Buffer size 384Bytes 
+//Buffer size 384 Bytes 
 //Four 7 segment numbers are displayed. No flicker.
-//Decimal point and frame graphics are provided. 
+//Simple graphics . 
 //Without the character table, 30% of Flash and Ram are used only.
  
  #define SDA_PORT PORTC
@@ -23,9 +23,7 @@ unsigned long tim , start , wait, bufridx ;
 void setup(void) {
 //Serial.begin(9600);
  i2c_init();
- //analogReference(INTERNAL);
 
- //int n= analogRead(1);
 
   for (byte j=0; j<sizeof(initcode); j++) { command(initcode[j]); }
   fillRoundRect(0,0,21,21,5,1);   displayon();delay(1000);
@@ -42,14 +40,14 @@ void loop(void)
 {  static unsigned int c;
   numout(c++); //delay(20);
  /*analogWrite(9,212);analogWrite(10,22);
- Move (0,0); Print("Boda ");  Move (0,2); Print("14x12");
+ Move (0,0); Print("Test ");  Move (0,2); Print("14x12");
 
- Move (0,7); Print("2018 "); displayon(0); wipe(); 
+ Move (0,7); Print("2018 "); displayon(); wipe(); 
  int n= analogRead(0); Move(0,4); Hexout(n >>8); Hexout(n & 0xff);
- n= analogRead(1); Move(0,6); Hexout(n >>8); Hexout(n & 0xff); displayon(3); wipe(); 
+ n= analogRead(1); Move(0,6); Hexout(n >>8); Hexout(n & 0xff); displayon(); wipe(); 
 // Serial.print(x); Serial.print(" ");
 
-// Move (0,0); Bcdout(1009<<1);   displayon(3);
+// Move (0,0); Bcdout(1009<<1);   displayon();
 delay(2000); 
  clearDisplay();wipe();
  numout(5674);
