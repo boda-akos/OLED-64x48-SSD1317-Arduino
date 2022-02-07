@@ -38,7 +38,7 @@ void setup(void) {
 
 void loop(void)
 {  static unsigned int c;
-  numout(c++); //delay(20);
+  numout(c++ %10000); 
  /*analogWrite(9,212);analogWrite(10,22);
  Move (0,0); Print("Test ");  Move (0,2); Print("14x12");
 
@@ -521,10 +521,10 @@ void displayon(void) {
   command(0x22);command(0); // Page start address 
   command((48 / 8) - 1); // Page end address
  {
-    for (uint16_t i=0; i<(384); i++) {
+    for (uint16_t i=0; i<384; i++) {
       i2c_start(oled<<1);i2c_write(0x40);
-      for (uint8_t x=0; x<16; x++) {i2c_write(bufr[i]);
-      i++;}  i--;i2c_stop();
+       i2c_write(bufr[i]);
+      i2c_stop();
     }
   }
 }
