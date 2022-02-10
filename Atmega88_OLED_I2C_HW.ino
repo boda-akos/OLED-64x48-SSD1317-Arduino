@@ -24,7 +24,7 @@ void setup(void) {
  //TWBR = ((F_CPU / TWI_FREQ) - 16) / 2;
  // Enable TWI and interrupt
  TWCR = (1 << TWIE) | (1 << TWEN);
- Serial.begin(9600);
+ //Serial.begin(9600);
  //analogReference(INTERNAL);
 
  //int n= analogRead(1);
@@ -45,7 +45,7 @@ void loop(void)
   //numout(c++);
   tim=millis();
 for (int c=0; c<10000; c++) sendByte(0,0); 
-Serial.print("Time ");Serial.println(millis()-tim);
+//Serial.print("Time ");Serial.println(millis()-tim);
   //if (c>999) {c=0; Serial.print("Time ");Serial.println(millis()-tim); tim=millis(); }
 }
 
@@ -69,23 +69,7 @@ while (!(TWCR &(1<<TWINT)));             //sent
 //if ((TWSR & 0xF8) !=0x28) Serial.println("ERROR3");
 TWCR =(1<<TWINT)|(1<<TWEN)|(1<<TWSTO);   //stop condition
 }
-/*
-void sendByte(byte DATA)
-{  
-TWCR =(1<<TWINT)|(1<<TWSTA)|(1<<TWEN);
-while (!(TWCR &(1<<TWINT)));
-TWDR = oled<<1;
-TWCR = (1<<TWINT) |(1<<TWEN);
-while (!(TWCR &(1<<TWINT)));
-TWDR = 0x00;
-TWCR = (1<<TWINT) |(1<<TWEN);
-while (!(TWCR &(1<<TWINT)));
-TWDR = DATA;
-TWCR = (1<<TWINT)|(1<<TWEN);
-while (!(TWCR &(1<<TWINT)));
-TWCR =(1<<TWINT)|(1<<TWEN)|(1<<TWSTO);
-}
-*/
+
 
 void displayon(void) {
   sendByte(0x21,0x00);sendByte(0x20,0);sendByte(0x20 + 64 - 1,0);
