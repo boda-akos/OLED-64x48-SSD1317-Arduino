@@ -2,6 +2,14 @@
 Compact driver with basic graphic capabilities
 Text, line, circle, rectangle, numbers, hex data.
 Controller seems to have the SSD1306 instruction set.
+Arduino programs:
+
+HW version : Interrupt driven hardware i2c on A4 (PC4) A5 (PC5) the standard pins. No external library. Fastest and small size.
+
+TWI version: Any pin could be used for i2c. No external library. Reasonably fast.
+
+SoftI2cMaster version : Any pin could be used for i2c. Fast. Needs library.
+
 
 Useful links
 
